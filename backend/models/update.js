@@ -19,6 +19,7 @@ const updateSchema = new mongoose.Schema({
   },
   photoUrl: {
     type: String,
+     default: "",
   },
   postedBy: {
     type: String,

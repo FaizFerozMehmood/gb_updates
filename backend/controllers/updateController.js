@@ -78,3 +78,23 @@ export const deletdUpdate = async (req, res) => {
       .json({ message: "error deleting update by id ", error: error.message });
   }
 };
+//  toggle verify for admins , for the time being public access..!
+
+export const verify = async (req, res) => {
+  try {
+    const update = await Update.findById(req.params.id);
+    if (!update) {
+      return res.status(404).json({ message: "update not found" });
+    }
+    update.verified = !update.verified;
+    const saved = await update.save();
+    res
+      .status(201)
+      .json({ message: "verification status updated ", data: saved.verified });
+  } catch (error) {
+    console.log("error verifing update", error);
+    res
+      .status(500)
+      .json({ message: "error verifing update", error: error.message });
+  }
+};

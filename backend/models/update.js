@@ -32,7 +32,7 @@ const updateSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  // simple verification flag (for admin-verified posts)
+
   verified: {
     type: Boolean,
     default: false,

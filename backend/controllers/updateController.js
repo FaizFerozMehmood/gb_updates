@@ -70,7 +70,7 @@ export const deletdUpdate = async (req, res) => {
     if (!deleted) {
       return res.status(404).json({ message: "update not found" });
     }
-    res.status(201).json({ message: "update deleted successfully!" });
+    res.status(201).json({ data: deleted,message: "update deleted successfully!" });
   } catch (error) {
     console.log("error deleting update", error);
     res
